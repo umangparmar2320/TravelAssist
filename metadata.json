@@ -1,8 +1,0 @@
-{
-  "name": "TravelAssist: Autonomous Multi-Modal Travel & Disruption Concierge",
-  "description": "Unified platform combining corporate multi-modal route planning with an autonomous dynamic disruption concierge, real-time replanning, and automated rebooking.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
