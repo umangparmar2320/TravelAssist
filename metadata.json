@@ -1,0 +1,10 @@
+{
+  "name": "Remix TravelAssist: Autonomous Multi-Modal Travel \u0026 Disruption Concierge",
+  "description": "Unified platform combining corporate multi-modal route planning with an autonomous dynamic disruption concierge, real-time replanning, and automated rebooking.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
