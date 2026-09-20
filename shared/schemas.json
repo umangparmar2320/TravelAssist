@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PartA_RoutePlanningSchemas",
+  "definitions": {
+    "RoutePlanRequest": {
+      "type": "object",
+      "properties": {
+        "origin_name": { "type": "string" },
+        "origin_lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "origin_lon": { "type": "number", "minimum": -180, "maximum": 180 },
+        "destination_name": { "type": "string" },
+        "destination_lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "destination_lon": { "type": "number", "minimum": -180, "maximum": 180 },
+        "travel_mode": { "type": "string", "enum": ["MULTI_MODAL", "TRANSIT", "DRIVING", "WALKING"] },
+        "preference": { "type": "string", "enum": ["FASTEST", "CHEAPEST", "ECO_FRIENDLY"] }
+      },
+      "required": ["origin_name", "origin_lat", "origin_lon", "destination_name", "destination_lat", "destination_lon"]
+    },
+    "RoutePlanResponse": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "origin_name": { "type": "string" },
+        "destination_name": { "type": "string" },
+        "total_distance_km": { "type": "number" },
+        "total_duration_minutes": { "type": "number" },
+        "estimated_cost": { "type": "number" },
+        "carbon_emissions_kg": { "type": "number" },
+        "status": { "type": "string" },
+        "segments": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/RouteSegment" }
+        }
+      },
+      "required": ["id", "origin_name", "destination_name", "total_distance_km", "total_duration_minutes"]
+    },
+    "RouteSegment": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sequence_order": { "type": "integer" },
+        "start_name": { "type": "string" },
+        "end_name": { "type": "string" },
+        "mode": { "type": "string" },
+        "distance_km": { "type": "number" },
+        "duration_minutes": { "type": "number" }
+      },
+      "required": ["id", "sequence_order", "start_name", "end_name", "mode"]
+    }
+  }
+}
